@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Sociostr/static/css/main.d2d4fc6e.css",
+    "main.js": "/Sociostr/static/js/main.0f609f72.js",
+    "index.html": "/Sociostr/index.html",
+    "main.d2d4fc6e.css.map": "/Sociostr/static/css/main.d2d4fc6e.css.map",
+    "main.0f609f72.js.map": "/Sociostr/static/js/main.0f609f72.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2d4fc6e.css",
+    "static/js/main.0f609f72.js"
+  ]
+}
