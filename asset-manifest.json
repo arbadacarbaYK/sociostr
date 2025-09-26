@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/Sociostr/static/css/main.d2d4fc6e.css",
-    "main.js": "/Sociostr/static/js/main.0f609f72.js",
-    "index.html": "/Sociostr/index.html",
-    "main.d2d4fc6e.css.map": "/Sociostr/static/css/main.d2d4fc6e.css.map",
-    "main.0f609f72.js.map": "/Sociostr/static/js/main.0f609f72.js.map"
+    "main.css": "/sociostr/static/css/main.ee2c28b9.css",
+    "main.js": "/sociostr/static/js/main.394b48a8.js",
+    "static/js/453.f47f985b.chunk.js": "/sociostr/static/js/453.f47f985b.chunk.js",
+    "index.html": "/sociostr/index.html",
+    "main.ee2c28b9.css.map": "/sociostr/static/css/main.ee2c28b9.css.map",
+    "main.394b48a8.js.map": "/sociostr/static/js/main.394b48a8.js.map",
+    "453.f47f985b.chunk.js.map": "/sociostr/static/js/453.f47f985b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2d4fc6e.css",
-    "static/js/main.0f609f72.js"
+    "static/css/main.ee2c28b9.css",
+    "static/js/main.394b48a8.js"
   ]
 }
