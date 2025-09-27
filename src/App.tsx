@@ -151,10 +151,11 @@ const App: React.FC = () => {
       const params = isAutoUpdate && lastUpdateTimestamp ? 
         { since: Math.floor(lastUpdateTimestamp / 1000) } : {};
       
-      const response = await axios.get(`${baseURL}/api/nostr-users`, { params });
-      const { users: fetchedUsers } = response.data;
+      // First fetch raw users
+      const rawResponse = await axios.get(`${baseURL}/api/nostr-users`, { params });
+      const { users: rawUsers } = rawResponse.data;
       
-      if (fetchedUsers.length === 0) {
+      if (rawUsers.length === 0) {
         if (isAutoUpdate) {
           console.log('No new users found during auto-update');
           setIsUpdating(false);
@@ -166,6 +167,10 @@ const App: React.FC = () => {
         return;
       }
 
+      // Then process users with geolocation
+      const processResponse = await axios.post(`${baseURL}/api/process-users`, { users: rawUsers });
+      const { users: fetchedUsers } = processResponse.data;
+      
       // Process users with timestamps
       const processedUsers = fetchedUsers.map((user: any) => ({
         ...user,
