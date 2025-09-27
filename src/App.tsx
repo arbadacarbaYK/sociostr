@@ -145,7 +145,7 @@ const App: React.FC = () => {
 
     try {
       const baseURL = process.env.NODE_ENV === 'production' 
-        ? 'https://nostr-sociograph-backend.onrender.com'
+        ? 'https://sociostr-backend.onrender.com'
         : 'http://localhost:3000';
       
       const params = isAutoUpdate && lastUpdateTimestamp ? 
@@ -373,8 +373,8 @@ const App: React.FC = () => {
                     <h3>
                       <a 
                         href={`https://nostr.com/${hexToNpub(user.pubkey)}`} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
                         style={{ color: '#9b59b6', textDecoration: 'none' }}
                       >
                         {user.display_name || user.name || 'Unknown User'}
