@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/sociostr/static/css/main.b64f44a3.css",
-    "main.js": "/sociostr/static/js/main.52b2347b.js",
+    "main.css": "/sociostr/static/css/main.5ac8d0c1.css",
+    "main.js": "/sociostr/static/js/main.17a9ef3b.js",
     "static/js/453.f47f985b.chunk.js": "/sociostr/static/js/453.f47f985b.chunk.js",
     "index.html": "/sociostr/index.html",
-    "main.b64f44a3.css.map": "/sociostr/static/css/main.b64f44a3.css.map",
-    "main.52b2347b.js.map": "/sociostr/static/js/main.52b2347b.js.map",
+    "main.5ac8d0c1.css.map": "/sociostr/static/css/main.5ac8d0c1.css.map",
+    "main.17a9ef3b.js.map": "/sociostr/static/js/main.17a9ef3b.js.map",
     "453.f47f985b.chunk.js.map": "/sociostr/static/js/453.f47f985b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b64f44a3.css",
-    "static/js/main.52b2347b.js"
+    "static/css/main.5ac8d0c1.css",
+    "static/js/main.17a9ef3b.js"
   ]
 }
