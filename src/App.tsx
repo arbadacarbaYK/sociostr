@@ -135,14 +135,20 @@ const App: React.FC = () => {
 
   // Update stats
   const updateStats = (userList: User[]) => {
+    console.log('updateStats called with users:', userList.length);
+    console.log('Sample user locations:', userList.slice(0, 3).map(u => ({ pubkey: u.pubkey?.slice(0, 8), location: u.location })));
+    
     // Filter users to only include those with actual location data
-    const usersWithLocation = userList.filter(user => 
-      user.location && 
-      user.location.latitude !== null && 
-      user.location.longitude !== null &&
-      user.location.latitude !== 0 && 
-      user.location.longitude !== 0
-    );
+    const usersWithLocation = userList.filter(user => {
+      const hasLocation = user.location && 
+        user.location.latitude !== null && 
+        user.location.longitude !== null &&
+        user.location.latitude !== 0 && 
+        user.location.longitude !== 0;
+      return hasLocation;
+    });
+    
+    console.log('Filtered users with location:', usersWithLocation.length);
     
     // Count unique countries from the actual country field
     const uniqueCountries = new Set(
