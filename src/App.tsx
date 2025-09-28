@@ -212,7 +212,7 @@ const App: React.FC = () => {
 
     try {
       const baseURL = process.env.NODE_ENV === 'production' 
-        ? 'https://sociostr-backend.onrender.com'
+        ? 'https://nostr-sociograph-backend.onrender.com'
         : 'http://localhost:3000';
       
       const params = isAutoUpdate && lastUpdateTimestamp ? 
