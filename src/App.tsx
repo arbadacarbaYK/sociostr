@@ -138,17 +138,20 @@ const App: React.FC = () => {
     console.log('updateStats called with users:', userList.length);
     console.log('Sample user locations:', userList.slice(0, 3).map(u => ({ pubkey: u.pubkey?.slice(0, 8), location: u.location })));
     
-    // Filter users to only include those with actual location data
+    // Filter users to only include those that will actually be displayed on the map
+    // This must match EXACTLY the same logic used in the map rendering
     const usersWithLocation = userList.filter(user => {
-      const hasLocation = user.location && 
-        user.location.latitude !== null && 
-        user.location.longitude !== null &&
-        user.location.latitude !== 0 && 
-        user.location.longitude !== 0;
-      return hasLocation;
+      // Exact same conditions as in the map rendering logic
+      if (!user.location || 
+          user.location.latitude === null || 
+          user.location.longitude === null ||
+          user.location.latitude === 0 || 
+          user.location.longitude === 0) return false;
+      
+      return true;
     });
     
-    console.log('Filtered users with location:', usersWithLocation.length);
+    console.log('Filtered users with location (matching map logic):', usersWithLocation.length);
     console.log('FORCE DEPLOY FRONTEND v2 - Debug filtering');
     
     // Count unique countries from the actual country field
