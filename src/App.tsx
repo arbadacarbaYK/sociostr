@@ -138,33 +138,50 @@ const App: React.FC = () => {
     console.log('updateStats called with users:', userList.length);
     console.log('Sample user locations:', userList.slice(0, 3).map(u => ({ pubkey: u.pubkey?.slice(0, 8), location: u.location })));
     
-    // Filter users to only include those that will actually be displayed on the map
+    // Count only users that will actually be rendered as markers on the map
     // This must match EXACTLY the same logic used in the map rendering
-    const usersWithLocation = userList.filter(user => {
+    let usersWithLocation = 0;
+    const uniqueCoordinates = new Set();
+    
+    userList.forEach(user => {
       // Exact same conditions as in the map rendering logic
       if (!user.location || 
           user.location.latitude === null || 
           user.location.longitude === null ||
           user.location.latitude === 0 || 
-          user.location.longitude === 0) return false;
+          user.location.longitude === 0) return;
       
-      return true;
+      // Check for duplicate coordinates (multiple users at same location)
+      const coordKey = `${user.location.latitude},${user.location.longitude}`;
+      if (uniqueCoordinates.has(coordKey)) return;
+      
+      uniqueCoordinates.add(coordKey);
+      usersWithLocation++;
     });
     
-    console.log('Filtered users with location (matching map logic):', usersWithLocation.length);
+    console.log('Users actually displayed on map:', usersWithLocation);
     console.log('FORCE DEPLOY FRONTEND v2 - Debug filtering');
     
-    // Count unique countries from the actual country field
-    const uniqueCountries = new Set(
-      usersWithLocation
-        .map(user => user.location.country)
-        .filter(country => country && country !== 'Unknown' && country !== '')
-    ).size;
+    // Count unique countries from users that will actually be displayed
+    const uniqueCountries = new Set();
+    userList.forEach(user => {
+      if (!user.location || 
+          user.location.latitude === null || 
+          user.location.longitude === null ||
+          user.location.latitude === 0 || 
+          user.location.longitude === 0) return;
+      
+      const coordKey = `${user.location.latitude},${user.location.longitude}`;
+      if (uniqueCoordinates.has(coordKey) && user.location.country && 
+          user.location.country !== 'Unknown' && user.location.country !== '') {
+        uniqueCountries.add(user.location.country);
+      }
+    });
 
     setStats({
       totalUsers: userList.length,
-      usersWithLocation: usersWithLocation.length,
-      uniqueCountries
+      usersWithLocation: usersWithLocation,
+      uniqueCountries: uniqueCountries.size
     });
   };
 
