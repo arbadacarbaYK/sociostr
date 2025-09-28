@@ -149,6 +149,7 @@ const App: React.FC = () => {
     });
     
     console.log('Filtered users with location:', usersWithLocation.length);
+    console.log('FORCE DEPLOY FRONTEND v2 - Debug filtering');
     
     // Count unique countries from the actual country field
     const uniqueCountries = new Set(
